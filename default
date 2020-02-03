@@ -1,0 +1,30 @@
+  /*
+    <div class="imgUp">
+        <img alt="imgUp" src="">
+    </div>
+
+  */
+  imgUp:                function(){
+    let url = '',
+        babel = this;
+    $('img').bind('click',function(){
+      let elem = this;
+      let res = babel.controll__imgUp(elem);
+      if(res){
+        url = this.getAttribute('src');
+        img = $('.imgUp img');
+        img.attr('src',url);
+        $('.imgUp').addClass('visible');
+      }
+    });
+    $('.imgUp').bind('click',function(){
+      this.classList.remove('visible');
+    })
+  },
+  controll__imgUp:      function(elem){
+    let contCard = document.querySelector('.content').classList.contains('documents');
+      console.log(elem,contCard,'controll__imgUp');
+
+    return contCard;
+  },
+  
